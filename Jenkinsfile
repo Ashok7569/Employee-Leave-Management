@@ -1,13 +1,31 @@
-# Employee Leave Management System
+pipeline {
+    agent any
  
-This is a simple web application for managing employee leave requests.
+    stages {
  
-## Technologies
+        stage('Checkout') {
+            steps {
+                echo 'Checking out Employee Leave project'
+            }
+        }
  
-- HTML
-- Git
-- GitHub
-- Jenkins
+        stage('Build') {
+            steps {
+                echo 'Build stage completed'
+            }
+        }
  
-## Jenkins Pipeline
+        stage('Test') {
+            steps {
+                bat 'findstr /I "<html" index.html'
+            }
+        }
+ 
+        stage('Deploy') {
+            steps {
+                echo 'Deployment stage completed'
+            }
+        }
+    }
+}
  
